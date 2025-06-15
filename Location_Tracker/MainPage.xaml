@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+             x:Class="Location_Tracker.MainPage"  
+             xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
+             Title="Location Tracker Application">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <StackLayout Grid.Row="0" BackgroundColor="#2196f3" Padding="20,10">
+            <Label Text="My Location Tracker" 
+                   FontSize="18" 
+                   FontAttributes="Bold" 
+                   TextColor="White" 
+                   HorizontalOptions="Center" />
+        </StackLayout>
+
+        <!-- Map -->
+        <maps:Map x:Name="HeatMap" 
+                  Grid.Row="1"
+                  MapType="Street"
+                  IsShowingUser="True"
+                  IsScrollEnabled="True"
+                  IsZoomEnabled="True" />
+
+        <!-- Controls -->
+        <StackLayout Grid.Row="2" Orientation="Horizontal" Padding="20,10" BackgroundColor="#F5F5F5">
+            <Button x:Name="StartTrackingButton" 
+                    Text="Start Tracking" 
+                    BackgroundColor="#4CAF50" 
+                    TextColor="White"
+                    Clicked="OnStartTrackingClicked"
+                    HorizontalOptions="FillAndExpand" />
+
+            <Button x:Name="StopTrackingButton" 
+                    Text="Stop Tracking" 
+                    BackgroundColor="#F44336" 
+                    TextColor="White"
+                    Clicked="OnStopTrackingClicked"
+                    HorizontalOptions="FillAndExpand"
+                    IsEnabled="False" />
+
+            <Button x:Name="ClearDataButton" 
+                    Text="Clear Data" 
+                    BackgroundColor="#FF9800" 
+                    TextColor="White"
+                    Clicked="OnClearDataClicked"
+                    HorizontalOptions="FillAndExpand" />
+        </StackLayout>
+    </Grid>
+</ContentPage>
